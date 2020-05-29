@@ -5,6 +5,7 @@ import { NgxEchartsDirective, NgxEchartsConfig, NGX_ECHARTS_CONFIG } from './ngx
   imports: [],
   declarations: [NgxEchartsDirective],
   exports: [NgxEchartsDirective],
+  providers: [NgxEchartsDirective]
 })
 export class NgxEchartsModule {
   static forRoot(config: NgxEchartsConfig): ModuleWithProviders {
