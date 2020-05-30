@@ -21,9 +21,6 @@
     "echarts": ">=3.1.1",
     "tslib": "^1.10.0"
   },
-  "DevDependencies": {
-    "echarts": ">=3.1.1"
-  },
   "main": "bundles/ngx-echarts.umd.js",
   "module": "fesm5/ngx-echarts.js",
   "es2015": "fesm2015/ngx-echarts.js",

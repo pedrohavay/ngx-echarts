@@ -90,7 +90,13 @@ let NgxEchartsDirective = class NgxEchartsDirective {
         this.chartFinished = this.createLazyEvent('finished');
         this.currentOffsetWidth = 0;
         this.currentOffsetHeight = 0;
-        this.echarts = config.echarts;
+        if (typeof (config) === "object") {
+            this.echarts = config.echarts();
+        }
+        else {
+            const bypass_config = config;
+            this.echarts = bypass_config[0].echarts();
+        }
     }
     ngOnChanges(changes) {
         const filter = ChangeFilter.of(changes);
@@ -353,8 +359,7 @@ NgxEchartsModule = NgxEchartsModule_1 = __decorate([
     NgModule({
         imports: [],
         declarations: [NgxEchartsDirective],
-        exports: [NgxEchartsDirective],
-        providers: [NgxEchartsDirective]
+        exports: [NgxEchartsDirective]
     })
 ], NgxEchartsModule);
 

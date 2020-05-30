@@ -94,7 +94,7 @@ export class NgxEchartsDirective implements OnChanges, OnDestroy, OnInit, DoChec
     private el: ElementRef,
     private ngZone: NgZone,
   ) {
-    this.echarts = config.echarts;
+    this.echarts = config[0].echarts().echarts;
   }
 
   ngOnChanges(changes: SimpleChanges) {

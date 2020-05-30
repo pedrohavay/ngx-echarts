@@ -306,7 +306,13 @@
             this.chartFinished = this.createLazyEvent('finished');
             this.currentOffsetWidth = 0;
             this.currentOffsetHeight = 0;
-            this.echarts = config.echarts;
+            if (typeof (config) === "object") {
+                this.echarts = config.echarts();
+            }
+            else {
+                var bypass_config = config;
+                this.echarts = bypass_config[0].echarts();
+            }
         }
         NgxEchartsDirective.prototype.ngOnChanges = function (changes) {
             var _this = this;
@@ -579,8 +585,7 @@
             core.NgModule({
                 imports: [],
                 declarations: [NgxEchartsDirective],
-                exports: [NgxEchartsDirective],
-                providers: [NgxEchartsDirective]
+                exports: [NgxEchartsDirective]
             })
         ], NgxEchartsModule);
         return NgxEchartsModule;
